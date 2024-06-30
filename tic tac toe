@@ -1,0 +1,43 @@
+def display_board(board):
+  # Print the board in a 3x3 grid format
+
+def get_player_move(player):
+  # Get valid player input (position 1-9)
+
+def update_board(board, position, mark):
+  # Update the board at the given position with the player's mark
+
+def check_win(board, mark):
+  # Check for winning conditions for the given player's mark
+
+def check_draw(board):
+  # Check if all positions on the board are filled
+
+# Initialize the game board
+board = [" "] * 9
+
+game_on = True
+current_player = "X"
+
+while game_on:
+  display_board(board)
+
+  # Get player move and update board
+  position = get_player_move(current_player)
+  update_board(board, position, current_player)
+
+  # Check for win or draw
+  if check_win(board, current_player):
+    display_board(board)
+    print(f"Player {current_player} wins!")
+    game_on = False
+  elif check_draw(board):
+    display_board(board)
+    print("It's a draw!")
+    game_on = False
+
+  # Switch player for next turn
+  current_player = "O" if current_player == "X" else "X"
+
+print("Thanks for playing!")
+          
