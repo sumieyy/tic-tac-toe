@@ -1,0 +1,22 @@
+import random
+
+choices = ["rock", "paper", "scissors"]
+
+def play(user_choice):
+  """Plays a single round of Rock-Paper-Scissors."""
+  computer_choice = random.choice(choices)
+  results = ["It's a tie!", "You win!", "You lose!"]
+  winner = (user_choice + computer_choice).find("ss") // 2  # More concise win/loss logic
+  print(results[winner], f"You chose: {user_choice}, Computer chose: {computer_choice}")
+
+while True:
+  user_choice = input("Enter your choice (rock, paper, scissors): ").lower()
+  if user_choice not in choices:
+    print("Invalid choice. Please enter rock, paper, or scissors.")
+    continue
+  play(user_choice)
+  choice = input("Do you want to play again? (y/n): ").lower()
+  if choice != "y":
+    break
+
+print("Thanks for playing!")
